@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Datos de Pacientes</title>
+    <link rel="stylesheet" href="/css/data.css"></link>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/css/footer.css"></link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"></link>  
+        <script src="https://kit.fontawesome.com/b460f2dc97.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@200&display=swap" rel="stylesheet"></link>     
+    </head>
+
+    <body class="body">
+      <div class="main">
+        <div class="contenedorImagen"> 
+        </div>
+          <div class="contenedorLogin"> 
+            <div class = "encabezado">
+              <h3>Datos personales del paciente:</h3>
+            </div>
+            <div class="contenedorInput" id="dataPatient">
+              <label for="name" class="form-label"><b>Nombre:</b></label><br>
+              <h5><%=patient.name%></h5>
+            </div>
+            <div class="contenedorInput" id="dataPatient">
+              <label for="typeDNI" class="form-label" ><b>Tipo de documento:</b></label><br>
+              <h5><%=patient.typeDNI%></h5>    
+            </div>
+            <div class="contenedorInput" id="dataPatient">
+              <label for="dni" class="form-label"><b>Número de documento: </b></label><br>
+              <h5><%=patient.dni%></h5>
+            </div>
+            <div class="contenedorInput" id="dataPatient">
+              <label for="dateBirth" class="form-label" ><b>Fecha de nacimiento:</b></label><br>
+              <h5><%=patient.dateBirth%></h5>
+            </div>
+            <div class="contenedorInput" id="dataPatient">
+              <label for="Age" class="form-label" ><b>Edad:</b></label><br>
+              <h5><%=age%></h5>
+            </div>
+            <div class="contenedorInput" id="dataPatient">
+              <label for="weight" class="form-label"><b>Peso (kg): </b></label><br>
+              <h5><%=patient.weight%></h5>
+            </div>
+            <div class="contenedorInput" id="dataPatient">
+              <label for="height" class="form-label"><b>Altura (cm): </b></label><br>
+              <h5><%=patient.height%></h5>
+            </div>
+            <div class="contenedorInput" id="dataPatient">
+              <label for="imc" class="form-label"><b>IMC: </b></label><br>
+              <%let heightMeter = (patient.height/100)%>
+              <% let imc = (patient.weight)/(heightMeter * heightMeter)%>
+              <h5><%=imc%></h5>
+            </div>
+            <div class="botonEliminar">
+              <form action="/<%= patient.id%>?_method=DELETE" method="POST">
+                  <button type="submit" id="eliminarUsuario" class="boton">Eliminar</button>
+              </form>
+            </div>
+            <div class="contenedorBotonLink">
+              <div>
+                <p><a href="/" class="link-dark">Volver atras</a></p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </body>
+</html>
