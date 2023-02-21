@@ -1,0 +1,16 @@
+-- ---
+-- Tablas
+-- ---
+
+DROP TABLE IF EXISTS Patients;
+		
+CREATE TABLE Patients (
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  name VARCHAR(60) NOT NULL,
+  typeDNI VARCHAR(50) NOT NULL,
+  dni VARCHAR(60) NOT NULL,
+  dateBirth DATE NOT NULL,
+  weight DECIMAL(10,0) NOT NULL,
+  height DECIMAL(10,0) NOT NULL,
+  PRIMARY KEY (id)
+);
