@@ -13,3 +13,5 @@ Para poder ejecutar el programa es necesario:
   nombre base de datos =lorenacardenas06_pruebavitalbox
   host =mysql-lorenacardenas06.alwaysdata.net
   puerto=3306
+  
+Nota: El repositorio con todos los documentos se encuentra en la rama master. 
