@@ -3,7 +3,6 @@ const express = require("express");
 const router = express.Router();
 const patientsControllers = require("../controllers/patientsControllers");
 const path = require("path");
-const { string } = require("i/lib/util");
 //----------------RUTAS------------------------------------
 
 /***Home***/
@@ -22,8 +21,8 @@ router.post("/", patientsControllers.searchPatient);
 router.delete("/:id", patientsControllers.deletePatient);
 
 /*** Edit Info Patient***/
-// router.put("/updateInfo/:id", patientsControllers.updateInfoPatient);
-
+router.post("/updateInfo/:id", patientsControllers.editInfoPatient);
+router.put("/updateInfo/:id", patientsControllers.updateInfoPatient);
 
 //-----------EXPORTAR MODULO---------------------------
 module.exports = router;

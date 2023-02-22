@@ -62,6 +62,33 @@ const controllerPatients =
         return res.render("home")
       })
   },
+  editInfoPatient: (req,res) =>{
+    let patient = db.Patients.findOne({where: {id: req.params.id}}).then(function(patient){
+      return res.render("dataEdit", {patient:patient});
+    })
+  },
+
+  updateInfoPatient: async (req,res) =>{
+    let newData = {
+      name: req.body.name,
+      typeDNI: req.body.typeDNI,
+      dni: req.body.dni,
+      dateBirth:req.body.dateBirth,
+      weight: req.body.weight,
+      height: req.body.height,
+      }
+      let updatePatient = await db.Patients.update(newData, {where: {id: req.params.id}});
+      let patient = await db.Patients.findOne({where: {id: req.params.id}})
+      let today = new Date()
+            let dateBirth = new Date(patient.dateBirth)
+            let age = today.getFullYear() - dateBirth.getFullYear()
+            let diferenceMonth = today.getMonth() - dateBirth.getMonth()
+            if (diferenceMonth < 0 || (diferenceMonth === 0 && today.getDate() < dateBirth.getDate()))
+            {
+                age--
+            }
+      res.render("data", {patient : patient, age: age})
+  },
 };
 //------------EXPORTAR MODULO CONTROLADOR USUARIOS------------------
 module.exports = controllerPatients;
